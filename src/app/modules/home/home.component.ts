@@ -4,12 +4,11 @@ declare var $: any;
 declare function initPageEcommerce([]): any;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
-  title = 'ecommerce';
+export class HomeComponent {
 
   constructor() {
     setTimeout(() => {
