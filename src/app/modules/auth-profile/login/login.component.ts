@@ -6,13 +6,14 @@ import {
   Validators
 } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   userForm!: FormGroup;
 
@@ -24,12 +25,18 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
+    public router: Router,
   ) {
     // this.createForm();
 
   }
 
   ngOnInit(): void {
+
+    if (this.authService.user && this.authService.token) {
+      this.router.navigate(["/"]);
+    }
+
     this.createForm();
   }
 

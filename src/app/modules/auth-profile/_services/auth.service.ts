@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { URL_SERVICIOS } from 'src/app/config/config';
+import { User } from '../models/business/user';
 
 @Injectable({
   providedIn: 'root'
@@ -51,10 +52,10 @@ export class AuthService {
       );
   }
 
-  register(email: string, password: string) {
+  register(data: User) {
     let urlBase = URL_SERVICIOS + '/users/register';
-
-    return this.http.post(urlBase, {email,password});
+    console.log(data);
+    return this.http.post(urlBase, data);
   }
 
   logout() {
